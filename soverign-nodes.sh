@@ -325,7 +325,7 @@ fi
 print_info "PULLING GEMMA4:E2B..."
 ollama pull gemma4:e2b
 
-print_step "ODYSSEUS AI WORKSPACE"
+print_step "ODYSSEUS AI WORKSPACE (Amazing work @ PewDiePie)"
 read -p "  [?] DEPLOY ODYSSEUS AI FRAMEWORK? (y/n): " INSTALL_ODY
 if [[ "$INSTALL_ODY" =~ ^[Yy]$ ]]; then
     print_info "CLONING ODYSSEUS REPOSITORY..."

@@ -322,8 +322,8 @@ if [ -d "/var/lib/casaos/volumes" ]; then
     echo -e "[Service]\nEnvironment=\"OLLAMA_MODELS=/var/lib/casaos/volumes/ollama_models\"" > /etc/systemd/system/ollama.service.d/override.conf
     systemctl daemon-reload && systemctl start ollama || true
 fi
-print_info "PULLING GEMMA:2B..."
-ollama pull gemma:2b
+print_info "PULLING GEMMA4:E2B..."
+ollama pull gemma4:e2b
 
 cat << 'EOF' > /usr/local/bin/pi-agent
 #!/usr/bin/env python3

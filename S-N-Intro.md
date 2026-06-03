@@ -20,7 +20,7 @@ Sovereign Nodes is a high-integrity deployment framework designed to transform y
 - **SOVEREIGN IDENTITY:** Mandatory 16-character security, Ed25519 SSH, and RSA-4096 (SHA-512) GPG key generation.
 - **DATA INTEGRITY:** Dynamic BTRFS storage pooling with SHA-256 cryptographic checksumming to prevent bit-rot and tampering.
 - **PRIVACY SHIELD:** Multi-layered autonomy via Mullvad VPN, i2pd (I2P), and a hard-killswitch torrent stack.
-- **LOCAL INTELLIGENCE:** Fully local AI via Ollama (Gemma4:e2b) seamlessly integrated into the Odysseus AI Workspace for agentic RAG and search workflows.
+- **LOCAL INTELLIGENCE:** Fully local AI via Ollama (Gemma4:e2b) seamlessly integrated into the Odysseus AI Workspace (Amazing work @ PewDiePie) for agentic RAG and search workflows.
 - **CROSS-PLATFORM:** Native support for Arch Linux, Debian, and Fedora environments.
 
 ---

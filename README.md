@@ -1,5 +1,9 @@
 # SOVEREIGN NODES
 
+
+
+<img width="1774" height="887" alt="soverign-nodes" src="https://github.com/user-attachments/assets/13389569-c7c4-4808-8dcf-4bfc8905dbe1" />
+
 > A high-integrity, privacy-hardened deployment for Linux Sovereign Nodes.
 
 ---

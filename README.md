@@ -49,7 +49,7 @@ The script automatically detects and configures the following environments:
 
 ### 4. Intelligence Layer
 - **Odysseus Workspace:** Optional automatic deployment of the Odysseus AI framework, a self-hosted, privacy-first dashboard for your agents and workflows.
-- **Local AI Engine:** Ollama running **Gemma4:e2b** (optimized for Pi 5), automatically bridged to the Odysseus network.
+- **Local AI Engine:** Ollama running **Gemma4:e2b** (optimized for Pi 5), automatically bridged to the Odysseus network (Amazing work @ PewDiePie).
 - **Sovereign Storage:** AI models are automatically stored on the high-integrity USB pool to preserve the primary system drive.
 
 ## Quick Start

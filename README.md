@@ -2,21 +2,26 @@
 
 ##### For all questions, please email [here](mailto:soverign-nodes@proton.me)
 
-
-
-
-<img width="1774" height="887" alt="soverign-nodes" src="https://github.com/user-attachments/assets/13389569-c7c4-4808-8dcf-4bfc8905dbe1" />
-
 > A high-integrity, privacy-hardened deployment for Linux Sovereign Nodes.
 
 ---
 
 ## Overview
 
-**Sovereign Nodes
-** is a professional-grade, cross-distro provisioning script designed to transform your hardware (specialized for Raspberry Pi 5 / Tilde Kit) into a secure, agentic, and autonomous server. 
+**Sovereign Nodes** is a professional-grade, cross-distro provisioning script designed to transform your hardware (specialized for Raspberry Pi 5 / Tilde Kit) into a secure, agentic, and autonomous server. 
 
 It features an ASCII TUI inspired by **Archinstall** and **Claude-Code**, providing high-signal feedback throughout the deployment process.
+
+```text
+   _____                     _                   _   _           _           
+  / ____|                   (_)                 | \ | |         | |          
+ | (___   _____   _____ _ __ _  __ _ _ __ ______|  \| | ___   __| | ___  ___ 
+  \___ \ / _ \ \ / / _ \ '__| |/ _` | '_ \______| . ` |/ _ \ / _` |/ _ \/ __|
+  ____) | (_) \ V /  __/ |  | | (_| | | | |     | |\  | (_) | (_| |  __/\__ \
+ |_____/ \___/ \_/ \___|_|  |_|\__, |_| |_|     |_| \_|\___/ \__,_|\___||___/
+                                __/ |                                        
+                               |___/                                         
+```
 
 ## Supported Distributions
 
@@ -43,24 +48,31 @@ The script automatically detects and configures the following environments:
 - **Torrents:** Secure qBittorrent stack hard-routed through a **Gluetun VPN kill-switch**.
 
 ### 4. Intelligence Layer
-- **Local AI:** Ollama running **Gemma:2b** (optimized for Pi 5).
+- **Odysseus Workspace:** Optional automatic deployment of the Odysseus AI framework, a self-hosted, privacy-first dashboard for your agents and workflows.
+- **Local AI Engine:** Ollama running **Gemma4:e2b** (optimized for Pi 5), automatically bridged to the Odysseus network.
 - **Sovereign Storage:** AI models are automatically stored on the high-integrity USB pool to preserve the primary system drive.
-- **Agent CLI:** Built-in `pi-agent` for local RAG and search workflows.
 
 ## Quick Start
 
-To deploy Sovereign Node on a fresh installation:
+To deploy Sovereign Nodes on a fresh installation:
 
 ```bash
-curl -fsSL https://soverign-nodes.github.io/soverign-nodes/soverign-node.sh | sudo bash
+curl -fsSL soverign-nodes.github.io/soverign-nodes/soverign-nodes.sh | sudo bash
 ```
 
 ## Hardware Recommendation
 
 - **Primary:** Raspberry Pi 5 (8GB Recommended).
-- **OS:** Raspberry Pi OS Lite (64-bit) or Arch Linux ARM.
+- **OS:** Linux (Arch, Debian, Fedora).
 - **External:** 1x or more USB 3.0 Drives for the Storage Pool.
 
 ---
 
 *Built for autonomy. Managed by you.*
+
+
+##### For all questions, please email [here](mailto:soverign-nodes@proton.me)
+
+
+
+

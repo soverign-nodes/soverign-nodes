@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# SOVEREIGN NODES | Pre-deployment script for Linux Sovereign Nodes
+# SOVEREIGN NODE | Pre-deployment script for Linux Sovereign Nodes
 # Style: High-signal ASCII TUI (Inspired by Claude-Code & Archinstall)
 set -euo pipefail
 
@@ -139,7 +139,7 @@ print_step "CRYPTOGRAPHIC ONBOARDING"
 read -p "  [?] GENERATE NEW GPG/SSH KEYS? (y/n): " GEN_KEYS
 if [[ "$GEN_KEYS" =~ ^[Yy]$ ]]; then
     print_info "GENERATING ED25519 SSH KEY..."
-    ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-sovereign-nodes" -f "$HOME/.ssh/id_ed25519" -N ""
+    ssh-keygen -t ed25519 -C "$(whoami)@$(hostname)-sovereign-node" -f "$HOME/.ssh/id_ed25519" -N ""
     print_success "SSH PUBLIC KEY GENERATED."
 
     print_info "GENERATING RSA 4096 / SHA-512 GPG KEY..."
@@ -319,27 +319,47 @@ if [ -d "/var/lib/casaos/volumes" ]; then
     systemctl stop ollama || true
     mkdir -p /var/lib/casaos/volumes/ollama_models
     mkdir -p /etc/systemd/system/ollama.service.d
-    echo -e "[Service]\nEnvironment=\"OLLAMA_MODELS=/var/lib/casaos/volumes/ollama_models\"" > /etc/systemd/system/ollama.service.d/override.conf
+    echo -e "[Service]\nEnvironment=\"OLLAMA_MODELS=/var/lib/casaos/volumes/ollama_models\"\nEnvironment=\"OLLAMA_HOST=0.0.0.0:11434\"" > /etc/systemd/system/ollama.service.d/override.conf
     systemctl daemon-reload && systemctl start ollama || true
 fi
 print_info "PULLING GEMMA4:E2B..."
 ollama pull gemma4:e2b
 
-cat << 'EOF' > /usr/local/bin/pi-agent
-#!/usr/bin/env python3
-import sys, os
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: pi-agent 'question'")
-        return
-    os.system(f"ollama run gemma:2b \"{sys.argv[1]}\"")
-if __name__ == "__main__":
-    main()
-EOF
-chmod +x /usr/local/bin/pi-agent
+print_step "ODYSSEUS AI WORKSPACE"
+read -p "  [?] DEPLOY ODYSSEUS AI FRAMEWORK? (y/n): " INSTALL_ODY
+if [[ "$INSTALL_ODY" =~ ^[Yy]$ ]]; then
+    print_info "CLONING ODYSSEUS REPOSITORY..."
+    git clone https://github.com/pewdiepie-archdaemon/odysseus.git /var/lib/casaos/volumes/odysseus
+    cd /var/lib/casaos/volumes/odysseus
+    cp .env.example .env
+    
+    # Bridge Odysseus to Host Ollama
+    print_info "CONFIGURING OLLAMA BRIDGE..."
+    # Get docker0 bridge IP to route from container to host
+    DOCKER_IP=\$(ip addr show docker0 | grep "inet " | awk '{print \$2}' | cut -d/ -f1 || echo "172.17.0.1")
+    sed -i "s|# OLLAMA_BASE_URL=http://host.docker.internal:11434/v1|OLLAMA_BASE_URL=http://\${DOCKER_IP}:11434/v1|g" .env
+    
+    # Fix potential SearXNG port conflict
+    sed -i 's|127.0.0.1:8080:8080|127.0.0.1:8081:8080|g' docker-compose.yml
+    sed -i 's|SEARXNG_BASE_URL=http://localhost:8080/|SEARXNG_BASE_URL=http://localhost:8081/|g' docker-compose.yml
+    
+    # Ensure Ollama is listening on all interfaces if it wasn't already caught by the volume block above
+    mkdir -p /etc/systemd/system/ollama.service.d
+    echo -e "[Service]\nEnvironment=\"OLLAMA_HOST=0.0.0.0:11434\"" >> /etc/systemd/system/ollama.service.d/override.conf
+    systemctl daemon-reload && systemctl restart ollama || true
+    
+    print_info "BUILDING ODYSSEUS CONTAINERS (THIS MAY TAKE 5-10 MINUTES)..."
+    docker compose up -d --build
+    cd -
+    print_success "ODYSSEUS DEPLOYED."
+fi
 
 print_step "PROVISIONING COMPLETE"
 print_info "PORTAINER:  https://<ip>:9443"
 print_info "VAULTWARDEN: http://<ip>:8080"
-print_info "AI AGENT:    pi-agent 'hello'"
+if [[ "$INSTALL_ODY" =~ ^[Yy]$ ]]; then
+    print_info "ODYSSEUS UI: http://<ip>:7000"
+    print_warn "ACTION REQUIRED FOR ODYSSEUS:"
+    print_warn "Run 'docker logs odysseus-odysseus-1' to find your initial Admin Password."
+fi
 draw_line

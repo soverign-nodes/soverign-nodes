@@ -1,4 +1,4 @@
-# SOVEREIGN NODE
+# SOVEREIGN NODES
 
 > A high-integrity, privacy-hardened deployment for Linux Sovereign Nodes.
 
@@ -6,7 +6,8 @@
 
 ## Overview
 
-**Sovereign Node** is a professional-grade, cross-distro provisioning script designed to transform your hardware (specialized for Raspberry Pi 5 / Tilde Kit) into a secure, agentic, and autonomous server. 
+**Sovereign Nodes
+** is a professional-grade, cross-distro provisioning script designed to transform your hardware (specialized for Raspberry Pi 5 / Tilde Kit) into a secure, agentic, and autonomous server. 
 
 It features an ASCII TUI inspired by **Archinstall** and **Claude-Code**, providing high-signal feedback throughout the deployment process.
 
@@ -44,7 +45,7 @@ The script automatically detects and configures the following environments:
 To deploy Sovereign Node on a fresh installation:
 
 ```bash
-curl -fsSL https://soverign-nodes.github.io/soverign-node/soverign-node.sh | sudo bash
+curl -fsSL https://soverign-nodes.github.io/soverign-nodes/soverign-node.sh | sudo bash
 ```
 
 ## Hardware Recommendation

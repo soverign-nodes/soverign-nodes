@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOVEREIGN NODE | Raspberry Pi 5</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --text: #c9d1d9;
+            --accent: #58a6ff;
+            --code-bg: #161b22;
+            --border: #30363d;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+        pre {
+            background: var(--code-bg);
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow-x: auto;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            color: var(--accent);
+        }
+        code {
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            background: var(--code-bg);
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        h1, h2 {
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+        a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .install-box {
+            background: #238636;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
+            margin: 40px 0;
+        }
+        .footer {
+            margin-top: 80px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #8b949e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <pre style="text-align: left; color: var(--text); border: none; background: transparent;">
+
+   _____                     _                   _   _           _           
+  / ____|                   (_)                 | \ | |         | |          
+ | (___   _____   _____ _ __ _  __ _ _ __ ______|  \| | ___   __| | ___  ___ 
+  \___ \ / _ \ \ / / _ \ '__| |/ _` | '_ \______| . ` |/ _ \ / _` |/ _ \/ __|
+  ____) | (_) \ V /  __/ |  | | (_| | | | |     | |\  | (_) | (_| |  __/\__ \
+ |_____/ \___/ \_/ \___|_|  |_|\__, |_| |_|     |_| \_|\___/ \__,_|\___||___/
+                                __/ |                                        
+                               |___/                                                        
+	                              </pre>
+            <h1>SOVEREIGN NODE</h1>
+            <p>A high-integrity, privacy-hardened deployment for the Raspberry Pi 5.</p>
+        </div>
+
+        <h2>Overview</h2>
+        <p>Sovereign Node is a professional-grade provisioning script designed to transform your Raspberry Pi into a secure, agentic server. It handles everything from SHA-256 storage pooling to GPG/SSH key generation and AI model deployment.</p>
+
+        <div class="install-box">
+            One-Line Installation:
+            <br>
+            <code style="background: transparent; color: white;">"curl -fsSL soverign-nodes.github.com/soverign-nodes/install.sh | sudo bash"</code>
+        </div>
+
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Security:</strong> UFW Firewall, SSH Hardening, 16-char Password Enforcement.</li>
+            <li><strong>Autonomy:</strong> Mullvad VPN, i2pd (I2P), WireGuard, Yeet.cx.</li>
+            <li><strong>Storage:</strong> Multi-drive Btrfs Pooling with SHA-256 integrity.</li>
+            <li><strong>Intelligence:</strong> Ollama + Gemma:2b with local Agentic CLI.</li>
+        </ul>
+
+        <h2>System Requirements</h2>
+        <p>Hardware: Raspberry Pi 5 (8GB Recommended).<br>OS: Raspberry Pi OS Lite (64-bit).</p>
+
+        <div class="footer">
+            <p>&copy; 2026 Sovereign Node Project. Distributed for Autonomy.</p>
+        </div>
+    </div>
+</body>
+</html>
